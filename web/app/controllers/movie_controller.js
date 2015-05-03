@@ -1,4 +1,4 @@
-MyApp.controller('MovieController', function ($scope, FirebaseService, OMDBService) {
+MyApp.controller('MovieController', function ($scope, FirebaseService, currentAuth, $location, OMDBService) {
     $scope.movies = FirebaseService.getMovies();
     
     $scope.searchOMDB = function() {
@@ -8,6 +8,10 @@ MyApp.controller('MovieController', function ($scope, FirebaseService, OMDBServi
     };
     
     $scope.removeMovie = function(movie) {
+        if(!currentAuth) {
+            $location.path('/login');
+            return;
+        }
         FirebaseService.removeMovie(movie);
     };
 });
