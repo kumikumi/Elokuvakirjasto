@@ -26,7 +26,7 @@
                     <ul class="nav navbar-nav">
                         <li><a href="#/">Etusivu</a></li>
                         <li><a href="#/movies">Elokuvat</a></li>
-                        <li><a href="#/movies/new">Uusi elokuva</a></li>
+                        <li ng-show="getUserLoggedIn()"><a href="#/movies/new">Uusi elokuva</a></li>
                     </ul>
                     <form class="navbar-form navbar-right" ng-show="getUserLoggedIn()">
                         <button class="btn btn-default" ng-click="logOut()">Kirjaudu ulos</button>
