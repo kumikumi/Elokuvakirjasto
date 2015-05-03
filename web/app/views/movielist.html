@@ -9,7 +9,7 @@
         <label>Elokuvan ilmestymisvuosi</label>
         <input ng-model="searchParams.y"></input>
     </div>
-    <button type="submit" ng-click="searchOMDB()">Paina tost</button>
+    <button class="btn btn-primary" type="submit" ng-click="searchOMDB()">Paina tost</button>
 </form>
 <div ng-show="omdbMovies">
 <h3>Ja sit täs olis nää hakutulokset. 
@@ -18,7 +18,7 @@
                   'one': 'Tai siis oikeastaan yksi kappale.',
                   'other': 'Niitä löytyi sattumoisin {} kappaletta.'}"></ng-pluralize></h3>
 
-<table>
+<table class="table">
     <thead>
         <tr>
             <th>Nimi</th>
@@ -34,7 +34,7 @@
 </table>
 </div>
 <h2>Ja sit täs ois nää elokuvat mitkä löytyy tästä palvelusta</h2>
-<table>
+<table class="table">
     <thead>
         <tr>
             <th>Nimi</th>
@@ -48,9 +48,9 @@
             <td><a href="#/movies/{{movie.$id}}">{{movie.name}}</a></td>
             <td>{{movie.director}}</td>
             <td>{{movie.release}}</td>
-            <td>
-                <a href="#/movies/{{movie.$id}}/edit">Muokkaa</a>
-                <button ng-click="removeMovie(movie)">Poista</button>
+            <td ng-show="getUserLoggedIn()">
+                <a class="btn btn-default" role="button" href="#/movies/{{movie.$id}}/edit">Muokkaa</a>
+                <button class="btn btn-danger" ng-click="removeMovie(movie)">Poista</button>
             </td>
         </tr>
     </tbody>

@@ -1,3 +1,6 @@
-<h1>Elokuvan tiedot</h1>
-<p><a href="#/movies/{{movie.$id}}/edit">Muokkaa</a></p>
-{{movie.name}}
+<h1>{{movie.name}}</h1>
+<ul>
+    <li><strong>Ohjaaja:</strong> {{movie.director}}</li>
+    <li><strong>Julkaisuvuosi:</strong> {{movie.release}}</li>
+</ul>
+<p>{{movie.description}}</p>

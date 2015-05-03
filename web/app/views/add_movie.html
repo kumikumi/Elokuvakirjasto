@@ -1,28 +1,32 @@
 <h1>Lisää elokuva</h1>
 <form name="newMovieForm">
-    <label>Nimi:</label>
-    <input name="name" type="text" ng-model="newMovie.name" required/>
-    <div ng-show="newMovieForm.name.$invalid && newMovieForm.name.$dirty">
-        Kenttä ei ole validi!
+    <div class="form-group">
+        <label>Nimi:</label>
+        <input name="name" type="text" class="form-control" ng-model="newMovie.name" required/>
+        <div ng-show="newMovieForm.name.$invalid && newMovieForm.name.$dirty">
+            Kenttä ei ole validi!
+        </div>
     </div>
-    <br>
-    <label>Ohjaaja:</label>
-    <input name="director" type="text" ng-model="newMovie.director" required/>
-    <div ng-show="newMovieForm.director.$invalid && newMovieForm.director.$dirty">
-        Kenttä ei ole validi!
+    <div class="form-group">
+        <label>Ohjaaja:</label>
+        <input name="director" type="text" class="form-control" ng-model="newMovie.director" required/>
+        <div ng-show="newMovieForm.director.$invalid && newMovieForm.director.$dirty">
+            Kenttä ei ole validi!
+        </div>
     </div>
-    <br>
-    <label>Julkaisuvuosi:</label>
-    <input name="release" type="text" ng-model="newMovie.release" required ng-pattern="/^[1-9][0-9][0-9][0-9]$/"/>
-    <div ng-show="newMovieForm.release.$invalid && newMovieForm.release.$dirty">
-        Kenttä ei ole validi!
+    <div class="form-group">
+        <label>Julkaisuvuosi:</label>
+        <input name="release" type="text" class="form-control" ng-model="newMovie.release" required ng-pattern="/^[1-9][0-9][0-9][0-9]$/"/>
+        <div ng-show="newMovieForm.release.$invalid && newMovieForm.release.$dirty">
+            Kenttä ei ole validi!
+        </div>
     </div>
-    <br>
-    <label>Kuvaus:</label>
-    <input name="description" type="text" ng-model="newMovie.description" required/>
-    <div ng-show="newMovieForm.description.$invalid && newMovieForm.description.$dirty">
-        Kenttä ei ole validi!
+    <div class="form-group">
+        <label>Kuvaus:</label>
+        <input name="description" type="text" class="form-control" ng-model="newMovie.description" required/>
+        <div ng-show="newMovieForm.description.$invalid && newMovieForm.description.$dirty">
+            Kenttä ei ole validi!
+        </div>
     </div>
-    <br>
-    <input type="submit" value="Paina tost" ng-disabled="newMovieForm.$invalid" ng-click="addMovie(newMovie)">
+    <input type="submit" value="Paina tost" class="btn btn-primary" ng-disabled="newMovieForm.$invalid" ng-click="addMovie(newMovie)">
 </form>

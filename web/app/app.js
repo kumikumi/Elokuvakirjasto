@@ -24,6 +24,15 @@ MyApp.config(function ($routeProvider) {
                     }
                 }
             })
+            .when('/movies/new', {
+                controller: 'AddMovieController',
+                templateUrl: 'app/views/add_movie.html',
+                resolve: {
+                    currentAuth: function (AuthenticationService) {
+                        return AuthenticationService.checkLoggedIn();
+                    }
+                }
+            })
             .when('/movies/:id', {
                 controller: 'ShowMovieController',
                 templateUrl: 'app/views/show_movie.html',
@@ -36,15 +45,6 @@ MyApp.config(function ($routeProvider) {
             .when('/movies/:id/edit', {
                 controller: 'EditMovieController',
                 templateUrl: 'app/views/edit_movie.html',
-                resolve: {
-                    currentAuth: function (AuthenticationService) {
-                        return AuthenticationService.checkLoggedIn();
-                    }
-                }
-            })
-            .when('/movies/new', {
-                controller: 'AddMovieController',
-                templateUrl: 'app/views/add_movie.html',
                 resolve: {
                     currentAuth: function (AuthenticationService) {
                         return AuthenticationService.checkLoggedIn();
@@ -71,7 +71,7 @@ MyApp.run(function (AuthenticationService, $rootScope, $location) {
         $location.path('/login');
     };
 
-    $rootScope.getUserLoggedIn = function() {
+    $rootScope.getUserLoggedIn = function () {
         return AuthenticationService.getUserLoggedIn();
     };
 });
