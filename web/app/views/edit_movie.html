@@ -1,0 +1,28 @@
+<h1>Muokkaa elokuvan tietoja</h1>
+<form name="editMovieForm">
+    <label>Nimi:</label>
+    <input name="name" type="text" ng-model="movie.name" required/>
+    <div ng-show="editMovieForm.name.$invalid && editMovieForm.name.$dirty">
+        Kenttä ei ole validi!
+    </div>
+    <br>
+    <label>Ohjaaja:</label>
+    <input name="director" type="text" ng-model="movie.director" required/>
+    <div ng-show="editMovieForm.director.$invalid && editMovieForm.director.$dirty">
+        Kenttä ei ole validi!
+    </div>
+    <br>
+    <label>Julkaisuvuosi:</label>
+    <input name="release" type="text" ng-model="movie.release" required ng-pattern="/^[1-9][0-9][0-9][0-9]$/"/>
+    <div ng-show="editMovieForm.release.$invalid && editMovieForm.release.$dirty">
+        Kenttä ei ole validi!
+    </div>
+    <br>
+    <label>Kuvaus:</label>
+    <input name="description" type="text" ng-model="movie.description" required/>
+    <div ng-show="editMovieForm.description.$invalid && editMovieForm.description.$dirty">
+        Kenttä ei ole validi!
+    </div>
+    <br>
+    <input type="submit" value="Paina tost" ng-disabled="editMovieForm.$invalid" ng-click="saveMovie(movie)">
+</form>

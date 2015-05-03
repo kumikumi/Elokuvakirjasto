@@ -1,0 +1,30 @@
+<h1>Kirjoittaudu sisään tietojärjestelmään</h1>
+<p>{{message}}</p>
+<form>
+    <div class="form-group">
+        <label>Sähköpostiosoite</label>
+        <input type="email" ng-model="email"/>
+    </div>
+    <div class="form-group">
+        <label>Salasana</label>
+        <input type="password" ng-model="password"/>
+    </div>
+    <div class="form-group">
+        <button type="submit" ng-click="logIn()">Paina tost</button>
+    </div>
+</form>
+
+<h1>Rekisteröityminen</h1>
+<form>
+    <div class="form-group">
+        <label>Sähköpostiosoite</label>
+        <input type="email" ng-model="newEmail"/>
+    </div>
+    <div class="form-group">
+        <label>Salasana</label>
+        <input type="password" ng-model="newPassword"/>
+    </div>
+    <div class="form-group">
+        <button type="submit" ng-click="register()">Paina tost</button>
+    </div>
+</form>

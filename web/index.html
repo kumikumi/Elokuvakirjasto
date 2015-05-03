@@ -1,21 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Elokuvakirjasto</title>
-  </head>
-  <body>
-    <h1>Hello, world!</h1>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Elokuvakirjasto</title>
+        <link rel="icon" href="data:;base64,iVBORw0KGgo=">
+        <link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+    </head>
+    <body ng-app="MyApp">
+        <h1>Hello, world!</h1>
+        <a href="https://secret-atoll-6744.herokuapp.com/">Linkki sovellukseen</a>
+        <ul id="navigation">
+            <li><a href="#/">Etusivu</a></li>
+            <li><a href="#/movies">Elokuvat</a></li>
+            <li><a href="#/movies/new">Uusi elokuva</a></li>
+            <li ng-show="getUserLoggedIn()">Kirjautunut: {{getUserLoggedIn().password.email}}</li>
+            <li ng-show="getUserLoggedIn()"><button ng-click="logOut()">Kirjaudu ulos</button></li>
+            <li ng-hide="getUserLoggedIn()"><a href="#/login">Kirjaudu sisään</a></li>
+        </ul>
 
-    <!-- Hyödyllisiä kirjastoja -->
-    <script src="bower_components/angular/angular.min.js"></script>
-    <script src="bower_components/angular-route/angular-route.min.js"></script>
-    <script src="bower_components/firebase/firebase.js"></script>
-    <script src="bower_components/angularfire/dist/angularfire.min.js"></script>
+        <div ng-view></div>
 
-    <!-- Linkitä omat tiedostosi tähän (huomaa, että polun juuri on web-kansio!) -->
-    <script src="app/app.js"></script>    
-  </body>
+        <!-- Hyödyllisiä kirjastoja -->
+        <script src="bower_components/angular/angular.min.js"></script>
+        <script src="bower_components/angular-route/angular-route.min.js"></script>
+        <script src="bower_components/firebase/firebase.js"></script>
+        <script src="bower_components/angularfire/dist/angularfire.min.js"></script>
+        <script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
+        <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+
+        <!-- Linkitä omat tiedostosi tähän (huomaa, että polun juuri on web-kansio!) -->
+        <script src="app/app.js"></script>
+        <script src="app/services/firebase_service.js"></script>
+        <script src="app/services/omdb_service.js"></script>
+        <script src="app/services/authentication_service.js"></script>
+        <script src="app/controllers/movie_controller.js"></script>
+        <script src="app/controllers/add_movie_controller.js"></script>
+        <script src="app/controllers/show_movie_controller.js"></script>
+        <script src="app/controllers/edit_movie_controller.js"></script>
+        <script src="app/controllers/user_controller.js"></script>
+    </body>
 </html>
